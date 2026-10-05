@@ -1,7 +1,7 @@
 // ============================================================
 // DAY 1 STARTER CODE — Singly Linked List
-// Name:
-// Date:
+// Name: Nitya Shah
+// Date: 10/05/2026
 // ============================================================
 
 public class LinkedList {
@@ -28,16 +28,33 @@ public class LinkedList {
     // Add a node to the front of the list
     public void addFirst(String data) {
         // TODO: implement
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+        size++;
     }
 
     // Add a node to the end of the list
-    public void addLast(String data) {
+    public void addLast(String data) throws NullPointerException{
         // TODO: implement
+        if(size!=0) {
+            Node newNode = new Node(data);
+            newNode.next = null;
+            Node initial = head;
+            while (initial.next != null) {
+                initial = initial.next;
+            }
+            initial.next = newNode;
+            size++;
+        }
     }
 
     // Remove and return the first element
     public String removeFirst() {
         // TODO: implement
+        if(size!=0) {
+            head = null;
+        }
         return null;
     }
 
