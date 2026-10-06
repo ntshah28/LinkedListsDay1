@@ -91,15 +91,20 @@ public class LinkedList {
     // ============================================================
     public void reverse() {
         // TODO: implement
+        if(this.size<=1) {
+            return;
+        }
         Node prev = null;
         Node curr = head;
         Node next = head.next;
         while(next!=null) {
-            prev = curr;
-            next = curr.next;
+            Node p = curr.next;
             curr.next = prev;
-            curr = curr.next;
+            next = p.next;
+            prev = curr;
+            curr = p;
         }
+        head.next=null;
     }
 
     // ============================================================
