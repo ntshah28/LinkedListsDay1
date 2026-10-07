@@ -97,14 +97,13 @@ public class LinkedList {
         Node prev = null;
         Node curr = head;
         Node next = head.next;
-        while(next!=null) {
-            Node p = curr.next;
+        while(curr!=null) {
+            next = curr.next;
             curr.next = prev;
-            next = p.next;
             prev = curr;
-            curr = p;
+            curr = next;
         }
-        head.next=null;
+        head = prev;
     }
 
     // ============================================================
@@ -113,7 +112,16 @@ public class LinkedList {
     // ============================================================
     public boolean isPalindrome() {
         // TODO: implement
-        return false;
+        LinkedList n = new LinkedList();
+        Node x = head;
+        n.addFirst(x.data);
+        while(x.next!=null) {
+            n.addLast(x.next.data);
+            x=x.next;
+        }
+        this.reverse();
+        LinkedList rev = this;
+        return n.toString().equals(rev.toString());
     }
 
     // ============================================================
