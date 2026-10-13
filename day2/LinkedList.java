@@ -92,6 +92,17 @@ public class LinkedList {
     // ============================================================
     public boolean hasCycle() {
         // TODO: implement
+        if(head==null||head.next==null) {return false;}
+        Node tort = head;
+        Node hare = head;
+
+        while(tort!=null&&hare.next!=null){
+            tort = tort.next;
+            hare = hare.next.next;
+            if(hare==tort){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -104,6 +115,15 @@ public class LinkedList {
     // ============================================================
     public String findMiddle() {
         // TODO: implement
+        if(head!=null && head.next!=null) {
+            Node slow = head;
+            Node fast = head;
+            while(fast!=null&&fast.next!=null) {
+                slow = slow.next;
+                fast=fast.next.next;
+            }
+            return slow.data;
+        }
         return null;
     }
 
